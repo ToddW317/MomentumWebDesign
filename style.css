@@ -49,7 +49,6 @@
       display: block;
       top: 100%;
       right: 0;
-      left: -10px;
       z-index: -1100;
       opacity: 0;
       transition: height .5s, opacity .5s;
