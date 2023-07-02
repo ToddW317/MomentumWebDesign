@@ -27,9 +27,8 @@
     }
     #cs-navigation {
       /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
-      font-family: 'Roboto', 'Arial', sans-serif;
       width: 100%;
-      padding: 1rem 1rem;
+      padding: 0, 0 !important;
       /* prevents padding from affecting height and width */
       box-sizing: border-box;
       background-color: #1a1a1a;
