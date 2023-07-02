@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Momentum Services</title>
+  </head>
+  <body>
+    <!-- ============================================ -->
+    <!--                 Navigation                   -->
+    <!-- ============================================ -->
+
+    <header id="cs-navigation">
+      <div class="cs-container">
+        <!--Nav Logo-->
+        <a href="" class="cs-logo" aria-label="back to home">
+          <img
+            src="C:\Users\todd_\Desktop\Web Dev\Momentum_Logo\icon_only\Momentum Transparent icon.png"
+            alt="logo"
+            width="210"
+            height="29"
+            aria-hidden="true"
+            decoding="async"
+          />
+        </a>
+        <!--Navigation List-->
+        <nav class="cs-nav" role="navigation">
+          <!--Mobile Nav Toggle-->
+          <button class="cs-toggle" aria-label="mobile menu toggle">
+            <div class="cs-box" aria-hidden="true">
+              <span class="cs-line cs-line1" aria-hidden="true"></span>
+              <span class="cs-line cs-line2" aria-hidden="true"></span>
+              <span class="cs-line cs-line3" aria-hidden="true"></span>
+            </div>
+          </button>
+          <!-- We need a wrapper div to set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
+          <div class="cs-ul-wrapper">
+            <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+              <li class="cs-li">
+                <a href="index.html" class="cs-li-link"> Home </a>
+              </li>
+              <li class="cs-li">
+                <a href="about.html" class="cs-li-link"> About </a>
+              </li>
+              <!--Copy and paste this cs-dropdown list item and replace any .cs-li with this cs-dropdown group to make a new dropdown-->
+              <li class="cs-li cs-dropdown" tabindex="0">
+                <span class="cs-li-link cs-active">
+                  Services
+                  <img
+                    class="cs-drop-icon"
+                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/down-gold.svg"
+                    alt="dropdown icon"
+                    width="15"
+                    height="15"
+                    decoding="async"
+                    aria-hidden="true"
+                  />
+                </span>
+                <ul class="cs-drop-ul">
+                  <li class="cs-drop-li">
+                    <a href="services.html" class="cs-li-link cs-drop-link"
+                      >All Services</a
+                    >
+                  </li>
+                  <li class="cs-drop-li">
+                    <a href="services.html" class="cs-li-link cs-drop-link"
+                      >Custom Websites</a
+                    >
+                  </li>
+                  <li class="cs-drop-li">
+                    <a href="services.html" class="cs-li-link cs-drop-link"
+                      >Research & Copywriting</a
+                    >
+                  </li>
+                  <li class="cs-drop-li">
+                    <a href="services.html" class="cs-li-link cs-drop-link"
+                      >SEO</a
+                    >
+                  </li>
+                  <li class="cs-drop-li">
+                    <a href="services.html" class="cs-li-link cs-drop-link"
+                      >Content Management</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="cs-li">
+                <a href="pricing.html" class="cs-li-link"> Pricing </a>
+              </li>
+              <li class="cs-li">
+                <a href="FAQ.html" class="cs-li-link"> FAQ </a>
+              </li>
+              <li class="cs-li">
+                <a href="contact.html" class="cs-li-link"> Contact </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <a href="contact.html" class="cs-button-solid cs-nav-button">Let's Chat!</a>
+        <!--Dark Mode toggle, uncomment button code to enable a dark mode toggle-->
+        <!-- <button id="dark-mode-toggle" aria-label="dark mode toggle">
+              <svg class="cs-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480" xml:space="preserve"><path d="M459.782 347.328c-4.288-5.28-11.488-7.232-17.824-4.96-17.76 6.368-37.024 9.632-57.312 9.632-97.056 0-176-78.976-176-176 0-58.4 28.832-112.768 77.12-145.472 5.472-3.712 8.096-10.4 6.624-16.832S285.638 2.4 279.078 1.44C271.59.352 264.134 0 256.646 0c-132.352 0-240 107.648-240 240s107.648 240 240 240c84 0 160.416-42.688 204.352-114.176 3.552-5.792 3.04-13.184-1.216-18.496z"/></svg>
+              <img class="cs-sun" aria-hidden="true" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fsun.svg" decoding="async" alt="moon" width="15" height="15">
+          </button> -->
+      </div>
+    </header>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ============================================ -->
+    <!--                  Services                    -->
+    <!-- ============================================ -->
+
+    <section id="services-969">
+      <picture class="cs-picture">
+        <!--Mobile Image-->
+        <source
+          media="(max-width: 1023px)"
+          srcset="C:\Users\todd_\Desktop\MomentumSite\CodeSnippet.jpg"
+        />
+        <!--Tablet and above Image-->
+        <source
+          media="(min-width: 1024px)"
+          srcset="C:\Users\todd_\Desktop\MomentumSite\CodeSnippet.jpg"
+        />
+        <img
+          loading="lazy"
+          decoding="async"
+          src="C:\Users\todd_\Desktop\MomentumSite\CodeSnippet.jpg"
+          alt="salon"
+          width="769"
+          height="1225"
+        />
+      </picture>
+      <div class="cs-container">
+        <!-- Left Content Section-->
+        <div class="cs-content">
+          <span class="cs-topper">What YOU Get</span>
+          <h2 class="cs-title">Creating Momentum with Fresh Web Designs</h2>
+          <p class="cs-text"></p>
+        </div>
+        <ul class="cs-card-group">
+          <li class="cs-item">
+            <picture class="cs-icon-wrapper">
+              <img
+                class="cs-icon"
+                loading="lazy"
+                decoding="async"
+                src="file:///C:/Users/todd_/Desktop/MomentumSite/code-svgrepo-com.svg"
+                alt="computer"
+                width="40"
+                height="40"
+              />
+            </picture>
+            <h3 class="cs-h3">Hand-Coded Website</h3>
+            <p class="cs-item-text">
+              I create visually appealing and unique websites from scratch,
+              tailored to your specific business needs, ensuring a professional
+              online presence.
+            </p>
+            <a href="" class="cs-link">Read More</a>
+            <!--Background Image-->
+            <picture class="cs-background">
+              <img
+                loading="lazy"
+                decoding="async"
+                src="C:\Users\todd_\Desktop\MomentumSite\pexels-lukas-574071.jpg"
+                alt="computer HTML code"
+                width="480"
+                height="425"
+              />
+            </picture>
+          </li>
+          <li class="cs-item">
+            <picture class="cs-icon-wrapper">
+              <img
+                class="cs-icon"
+                loading="lazy"
+                decoding="async"
+                src="file:///C:/Users/todd_/Desktop/MomentumSite/seo-1-svgrepo-com.svg"
+                alt="hair cut"
+                width="40"
+                height="40"
+              />
+            </picture>
+            <h3 class="cs-h3">Internal SEO</h3>
+            <p class="cs-item-text">
+              I optimize your website's structure, content, and meta-tags to
+              improve search engine rankings, making it easier for potential
+              customers to find your business online.
+            </p>
+            <a href="" class="cs-link">Read More</a>
+            <!--Background Image-->
+            <picture class="cs-background">
+              <img
+                loading="lazy"
+                decoding="async"
+                src="C:\Users\todd_\Desktop\MomentumSite\SEO.jpg"
+                alt="SEO magnifying glass"
+                width="480"
+                height="425"
+              />
+            </picture>
+          </li>
+          <li class="cs-item">
+            <picture class="cs-icon-wrapper">
+              <img
+                class="cs-icon"
+                loading="lazy"
+                decoding="async"
+                src="file:///C:/Users/todd_/Desktop/MomentumSite/hours-clock-24-hours-stopwatch-time-timer-watch-svgrepo-com%20(1).svg"
+                alt="24 hours 7 days stopwatch"
+                width="40"
+                height="40"
+              />
+            </picture>
+            <h3 class="cs-h3">24/7 Content Management</h3>
+            <p class="cs-item-text">
+              I provide reliable and efficient content management services,
+              keeping your website up-to-date with fresh and engaging content to
+              captivate visitors.
+            </p>
+            <a href="" class="cs-link">Read More</a>
+            <!--Background Image-->
+            <picture class="cs-background">
+              <img
+                loading="lazy"
+                decoding="async"
+                src="C:\Users\todd_\Desktop\MomentumSite\dual-monitors-2.jpg"
+                alt="hair cut"
+                width="480"
+                height="425"
+              />
+            </picture>
+          </li>
+          <li class="cs-item">
+            <picture class="cs-icon-wrapper">
+              <img
+                class="cs-icon"
+                loading="lazy"
+                decoding="async"
+                src="file:///C:/Users/todd_/Desktop/MomentumSite/copy-course-svgrepo-com.svg"
+                alt="hair cut"
+                width="40"
+                height="40"
+              />
+            </picture>
+            <h3 class="cs-h3">Research and Copywriting</h3>
+            <p class="cs-item-text">
+              I offer comprehensive research and copywriting services to create
+              compelling content that effectively conveys your brand's message
+              and drives customer engagement and conversions.
+            </p>
+            <a href="" class="cs-link">Read More</a>
+            <!--Background Image-->
+            <picture class="cs-background">
+              <img
+                loading="lazy"
+                decoding="async"
+                src="C:\Users\todd_\Desktop\MomentumSite\pexels-negative-space-34578.jpg"
+                alt="hair cut"
+                width="480"
+                height="425"
+              />
+            </picture>
+          </li>
+        </ul>
+      </div>
+      <!--Waves Background-->
+      <picture class="cs-waves">
+        <source
+          media="(max-width: 600px)"
+          srcset="
+            https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/waves-m.svg
+          "
+        />
+        <source
+          media="(min-width: 601px)"
+          srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/waves.svg"
+        />
+        <img
+          loading="lazy"
+          decoding="async"
+          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/waves.svg"
+          alt="waves graphic"
+          width="1920"
+          height="331"
+          aria-hidden="true"
+        />
+      </picture>
+    </section>
+
+    <!-- ============================================ -->
+    <!--             Side By Side Reverse             -->
+    <!-- ============================================ -->
+
+    <section id="sbsr-956">
+      <div class="cs-container">
+        <div class="cs-image-group">
+          <!--Left Image-->
+          <picture class="cs-picture cs-picture1">
+            <!--Mobile Image-->
+            <source
+              media="(max-width: 600px)"
+              srcset="C:\Users\todd_\Desktop\MomentumSite\SEO.jpg"
+            />
+            <!--Tablet and above Image-->
+            <source
+              media="(min-width: 601px)"
+              srcset="C:\Users\todd_\Desktop\MomentumSite\SEO.jpg"
+            />
+            <img
+              loading="lazy"
+              decoding="async"
+              src="C:\Users\todd_\Desktop\MomentumSite\SEO.jpg"
+              alt="SEO web developer content king"
+              width="349"
+              height="590"
+            />
+          </picture>
+          <div class="cs-flex">
+            <!--right image-->
+            <picture class="cs-picture cs-picture2">
+              <!--Mobile Image-->
+              <source
+                media="(max-width: 600px)"
+                srcset="
+                  C:\Users\todd_\Desktop\MomentumSite\pexels-negative-space-34578.jpg
+                "
+              />
+              <!--Tablet and above Image-->
+              <source
+                media="(min-width: 601px)"
+                srcset="
+                  C:\Users\todd_\Desktop\MomentumSite\pexels-negative-space-34578.jpg
+                "
+              />
+              <img
+                loading="lazy"
+                decoding="async"
+                src="C:\Users\todd_\Desktop\MomentumSite\pexels-negative-space-34578.jpg"
+                alt="negative space computer and cell phone web design"
+                width="281"
+                height="387"
+              />
+            </picture>
+            <div class="cs-contact-group">
+              <a class="cs-link" href="mailto:Todd@MomentumWebDev.com">
+                <picture class="cs-wrapper">
+                  <img
+                    class="cs-icon"
+                    loading="lazy"
+                    decoding="async"
+                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/pin-hair.svg"
+                    alt="icon"
+                    width="24"
+                    height="24"
+                  />
+                </picture>
+                <div class="cs-info">
+                  <span class="cs-header">Let's Connect</span>
+                  <span class="cs-link-content">Todd@MomentumWebDev.com</span>
+                </div>
+              </a>
+              <!-- <a class="cs-link" href="">
+                <picture class="cs-wrapper">
+                  <img
+                    class="cs-icon"
+                    loading="lazy"
+                    decoding="async"
+                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/mail-hair.svg"
+                    alt="icon"
+                    width="24"
+                    height="24"
+                  />
+                </picture>
+                <!-- <div class="cs-info">
+                  <span class="cs-header">Visit Us At</span>
+                  <span class="cs-link-content">123 Fake St, Highland, IN</span>
+                </div> -->
+              <!-- </a> -->
+            </div>
+          </div>
+        </div>
+        <div class="cs-content">
+          <span class="cs-topper">An All-Inclusive Package</span>
+          <h2 class="cs-title">
+            Life Is More Beautiful When You Get More Bang For Your Buck
+          </h2>
+          <p class="cs-text">
+            As a freelance web developer, I specialize in providing a range of
+            essential services tailored specifically to small businesses. With
+            my expertise, I offer the following services to help enhance your
+            online presence and drive business growth: 
+            </p>
+          <p class="cs-text"><span class="cs-topper">Custom, Hand-coded
+            Website</span> I create unique and visually appealing websites that are built from
+            scratch, tailored to your business requirements. By employing
+            hand-coding techniques, I ensure that your website is optimized for
+            performance, responsiveness, and user experience, resulting in a
+            professional online presence that stands out from the competition.
+            </p>
+            <p class="cs-text">
+                <span class="cs-topper">Internal SEO Optimization</span> I understand the importance of search
+            engine visibility in driving organic traffic to your website. With
+            my expertise in internal Search Engine Optimization (SEO), I
+            optimize the structure, content, and meta-tags of your website to
+            improve its search engine rankings. This means your business can be
+            easily found by potential customers searching for your products or
+            services.
+            </p>
+            <p class="cs-text">
+                <span class="cs-topper">24/7 Content Management</span> Keeping your website up-to-date with fresh
+            content is vital for engaging visitors and maintaining relevance. I
+            offer round-the-clock content management services, ensuring that
+            your website remains current and compelling. Whether you need
+            regular updates, blog posts, or news articles, I'm here to manage
+            your content efficiently and promptly.
+            </p>
+            <p class="cs-text">
+                <span class="cs-topper">Research and Copywriting</span> Crafting compelling and persuasive copy is
+            crucial for conveying your brand's message and attracting customers.
+            I provide comprehensive research and copywriting services to create
+            engaging content that captivates your audience and drives
+            conversions. From website copy to blog posts and promotional
+            materials, I can help you effectively communicate your unique value
+            proposition.
+            </p>
+          </p>
+          <a href="contact.html" class="cs-button-solid" aria-label="learn more about us"
+            >Learn More</a
+          >
+        </div>
+      </div>
+      <!--Zen Leaf Group-->
+      <img
+        class="cs-floater"
+        loading="lazy"
+        decoding="async"
+        src="C:\Users\todd_\Desktop\MomentumSite\cross-platform.png"
+        alt="hair tools"
+        width="125"
+        height="90"
+      />
+    </section>
+
+    <!-- ============================================ -->
+    <!--                   Footer                     -->
+    <!-- ============================================ -->
+
+    <footer id="cs-footer-840">
+      <div class="cs-container">
+        <!-- Logo Group -->
+        <div class="cs-logo-group">
+          <a aria-label="go back to home" class="cs-logo" href="">
+            <img
+              class="cs-logo-img"
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              src="C:\Users\todd_\Desktop\Web Dev\Momentum_Logo\icon_only\Momentum Transparent icon.png"
+              alt="logo"
+              width="240"
+              height="32"
+            />
+          </a>
+          <p class="cs-text">
+            Contrary to popular belief, a website is one of the first things
+            customers review before deciding on which company they would like to
+            work with.
+          </p>
+          <div class="cs-social">
+            <a
+              class="cs-social-link"
+              aria-label="visit facebook profile"
+              href=""
+            >
+              <img
+                class="cs-social-img"
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fface-grey1.svg"
+                alt="facebook"
+                width="11"
+                height="11"
+              />
+            </a>
+            <a
+              class="cs-social-link"
+              aria-label="visit twitter profile"
+              href=""
+            >
+              <img
+                class="cs-social-img"
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Finstragm-grey3.svg"
+                alt="twitter"
+                width="6"
+                height="11"
+              />
+            </a>
+            <a
+              class="cs-social-link"
+              aria-label="visit instagram profile"
+              href=""
+            >
+              <img
+                class="cs-social-img"
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Ftwitter-grey1.svg"
+                alt="instagram"
+                width="11"
+                height="11"
+              />
+            </a>
+          </div>
+        </div>
+        <!-- Links -->
+        <div class="cs-ul-wrapper">
+            <span class="cs-header">Quick Links</span>
+            <ul class="cs-ul cs-ul-1">
+              <li class="cs-li">
+                <a class="cs-link" href="index.html">Home</a>
+              </li>
+              <li class="cs-li">
+                <a class="cs-link" href="about.html">About</a>
+              </li>
+              <li class="cs-li">
+                <a class="cs-link" href="service.html">Services</a>
+              </li>
+              <li class="cs-li">
+                <a class="cs-link" href="pricing.html">Pricing</a>
+              </li>
+              <li class="cs-li">
+                <a class="cs-link" href="FAQ.html">FAQ</a>
+              </li>
+              <!-- <li class="cs-li">
+                    <a class="cs-link" href="">Blog</a>
+                  </li> -->
+              <li class="cs-li">
+                <a class="cs-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        <div class="cs-ul-wrapper">
+          <!-- Contact Info -->
+          <span class="cs-header">Contact Information</span>
+          <ul class="cs-ul">
+            <li class="cs-li">
+              <!--Make this link go to the google page-->
+              <a class="cs-link" href="" target="_blank">
+                <img
+                  class="cs-icon"
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fclock-grey.svg"
+                  alt="clock icon"
+                  width="20"
+                  height="20"
+                />
+                M-F 10am – 8pm | Sat 11am - 6pm
+              </a>
+            </li>
+            <li class="cs-li">
+              <a class="cs-link" href="tel:555-497-1900">
+                <img
+                  class="cs-contact-icon"
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fphone-grey.svg"
+                  alt="phone icon"
+                  width="20"
+                  height="20"
+                />
+                555-497-1900
+              </a>
+            </li>
+            <li class="cs-li">
+              <a class="cs-link" href="mailto:Todd@MomentumWebDev.com">
+                <img
+                  class="cs-icon"
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fmessage-grey.svg"
+                  alt="email icon"
+                  width="20"
+                  height="20"
+                />
+                Todd@MomentumWebDev.com
+              </a>
+            </li>
+            <li class="cs-li">
+              <!--Make this link go to the google page-->
+              <a class="cs-link" href="" target="_blank">
+                <img
+                  class="cs-icon"
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fpin-grey.svg"
+                  alt="pin icon"
+                  width="20"
+                  height="20"
+                />
+                Cerritos, California
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="cs-bottom">
+        <span class="cs-credit">
+          © Copyright 2023
+          <a href="" class="cs-credit-link" target="_blank"
+            >Momentum Web Design, LLC | MomentumWebDev.com</a
+          >
+        </span>
+        <div class="cs-bottom-links">
+          <a href="" class="cs-bottom-link">Privacy Policy</a>
+          <a href="" class="cs-bottom-link">Terms Of Use</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

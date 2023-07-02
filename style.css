@@ -1,0 +1,2556 @@
+/*-- -------------------------- -->
+<---     Mobile Navigation      -->
+<--- -------------------------- -*/
+
+:root {
+    /* remove this whole :root and put in your global css file that's shared on all pages, then just remove this section from all other Stitches you add later, only need this once in your global stylesheet */
+    --primary: #AC8856;
+    --primaryLight: #5A766A;
+    --secondary: #FFBA43;
+    --secondaryLight: #FFBA43;
+    --headerColor: #1a1a1a;
+    --bodyTextColor: #4E4B66;
+    --bodyTextColorWhite: #FAFBFC;
+    /* 13px - 16px */
+    --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+    /* 31px - 49px */
+    --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
+    --bodyFontSize: 1rem;
+    /* 60px - 100px top and bottom */
+    --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+  }
+  
+  /* Mobile - 1023px */
+  @media only screen and (max-width: 63.9375rem) {
+    body.cs-open {
+      overflow: hidden;
+    }
+    #cs-navigation {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      width: 100%;
+      padding: 1.25rem 1rem;
+      /* prevents padding from affecting height and width */
+      box-sizing: border-box;
+      background-color: #1a1a1a;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      position: fixed;
+      z-index: 10000;
+    }
+    #cs-navigation:before {
+      content: '';
+      width: 100%;
+      height: 0vh;
+      background: rgba(0, 0, 0, 0.6);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      position: absolute;
+      display: block;
+      top: 100%;
+      right: 0;
+      z-index: -1100;
+      opacity: 0;
+      transition: height .5s, opacity .5s;
+    }
+    #cs-navigation.cs-active:before {
+      height: 150vh;
+      opacity: 1;
+    }
+    #cs-navigation.cs-active .cs-toggle {
+      transform: rotate(180deg);
+    }
+    #cs-navigation.cs-active .cs-ul-wrapper {
+      opacity: 1;
+      transform: scaleY(1);
+      transition-delay: .15s;
+    }
+    #cs-navigation.cs-active .cs-li {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    #cs-navigation .cs-container {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    #cs-navigation .cs-logo {
+      width: 40%;
+      max-width: 9.125rem;
+      height: 100%;
+      margin: 0 auto 0 0;
+      padding: 0;
+      /* prevents padding from affecting height and width */
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+    #cs-navigation .cs-logo img {
+      width: 100%;
+      height: 100%;
+      /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
+      object-fit: contain;
+    }
+    #cs-navigation .cs-toggle {
+      width: 3.5rem;
+      height: 3.5rem;
+      margin: 0 0 0 auto;
+      border-radius: 0.25rem;
+      background-color: var(--primary);
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform .6s;
+    }
+    #cs-navigation .cs-active .cs-line1 {
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(225deg);
+    }
+    #cs-navigation .cs-active .cs-line2 {
+      top: 50%;
+      transform-origin: center;
+      transform: translate(-50%, -50%) translateY(0) rotate(-225deg);
+    }
+    #cs-navigation .cs-active .cs-line3 {
+      bottom: 100%;
+      opacity: 0;
+    }
+    #cs-navigation .cs-box {
+      /* 24px - 28px */
+      width: clamp(1.5rem, 2vw, 1.75rem);
+      height: 1rem;
+      position: relative;
+    }
+    #cs-navigation .cs-line {
+      width: 100%;
+      height: 2px;
+      border-radius: 2px;
+      background-color: #FAFBFC;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    #cs-navigation .cs-line1 {
+      top: 0;
+      transform-origin: center;
+      transition: transform .5s, top .3S, left .3S;
+      animation-duration: .7s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+      animation-direction: normal;
+    }
+    #cs-navigation .cs-line2 {
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      transition: top .3s, left .3s, transform .5s;
+      animation-duration: .7s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+      animation-direction: normal;
+    }
+    #cs-navigation .cs-line3 {
+      bottom: 0;
+      transition: bottom .3s, opacity .3s;
+    }
+    #cs-navigation .cs-ul-wrapper {
+      width: 100%;
+      height: auto;
+      padding-bottom: 2.4em;
+      opacity: 0;
+      background-color: #fff;
+      box-shadow: inset rgba(0, 0, 0, 0.2) 0px 8px 24px;
+      overflow: hidden;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: -1;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform .4s, opacity .3s;
+    }
+    #cs-navigation .cs-ul {
+      margin: 0;
+      padding: 3rem 0 0 0;
+      width: 100%;
+      height: auto;
+      max-height: 65vh;
+      overflow: scroll;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    #cs-navigation .cs-li {
+      width: 100%;
+      text-align: center;
+      list-style: none;
+      margin-right: 0;
+      /* transition from these values */
+      transform: translateY(-4.375rem);
+      opacity: 0;
+      transition: transform .6s, opacity .9s;
+    }
+    #cs-navigation .cs-li:nth-of-type(1) {
+      transition-delay: .05s;
+    }
+    #cs-navigation .cs-li:nth-of-type(2) {
+      transition-delay: .1s;
+    }
+    #cs-navigation .cs-li:nth-of-type(3) {
+      transition-delay: .15s;
+    }
+    #cs-navigation .cs-li:nth-of-type(4) {
+      transition-delay: .2s;
+    }
+    #cs-navigation .cs-li:nth-of-type(5) {
+      transition-delay: .25s;
+    }
+    #cs-navigation .cs-li:nth-of-type(6) {
+      transition-delay: .3s;
+    }
+    #cs-navigation .cs-li:nth-of-type(7) {
+      transition-delay: .35s;
+    }
+    #cs-navigation .cs-li:nth-of-type(8) {
+      transition-delay: .4s;
+    }
+    #cs-navigation .cs-li:nth-of-type(9) {
+      transition-delay: .45s;
+    }
+    #cs-navigation .cs-li:nth-of-type(10) {
+      transition-delay: .5s;
+    }
+    #cs-navigation .cs-li:nth-of-type(11) {
+      transition-delay: .55s;
+    }
+    #cs-navigation .cs-li:nth-of-type(12) {
+      transition-delay: .6s;
+    }
+    #cs-navigation .cs-li:nth-of-type(13) {
+      transition-delay: .65s;
+    }
+    #cs-navigation .cs-li-link {
+      /* 16px - 24px */
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      line-height: 1.2em;
+      text-decoration: none;
+      margin: 0;
+      color: var(--headerColor);
+      display: inline-block;
+      position: relative;
+    }
+    #cs-navigation .cs-li-link.cs-active {
+      color: var(--primary);
+    }
+    #cs-navigation .cs-li-link:hover {
+      color: var(--primary);
+    }
+    #cs-navigation .cs-button-solid {
+      display: none;
+    }
+  }
+  
+  /*-- -------------------------- -->
+  <---     Navigation Dropdown    -->
+  <--- -------------------------- -*/
+  
+  /* Mobile - 1023px */
+  @media only screen and (max-width: 63.9375rem) {
+    #cs-navigation .cs-li {
+      text-align: center;
+      width: 100%;
+      display: block;
+    }
+    #cs-navigation .cs-dropdown {
+      position: relative;
+      color: var(--bodyTextColorWhite);
+    }
+    #cs-navigation .cs-dropdown.cs-active .cs-drop-ul {
+      height: auto;
+      opacity: 1;
+      visibility: visible;
+      margin: 0.75rem 0 0 0;
+      padding: 0.75rem 0;
+    }
+    #cs-navigation .cs-dropdown.cs-active .cs-drop-link {
+      opacity: 1;
+    }
+    #cs-navigation .cs-dropdown .cs-li-link {
+      position: relative;
+      transition: opacity .3s;
+    }
+    #cs-navigation .cs-drop-icon {
+      width: 0.9375rem;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      right: -1.25rem;
+      transform: translateY(-50%);
+    }
+    #cs-navigation .cs-drop-ul {
+      width: 100%;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      background-color: var(--primary);
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      transition: padding .3s, margin .3s, height .3s, opacity .3s, visibility .3s;
+    }
+    #cs-navigation .cs-drop-li {
+      list-style: none;
+    }
+    #cs-navigation .cs-li-link.cs-drop-link {
+      /* 14px - 16px */
+      font-size: clamp(0.875rem, 2vw, 1.25rem);
+      color: #fff;
+    }
+  }
+  /* Desktop - 1024px */
+  @media only screen and (min-width: 64rem) {
+    #cs-navigation .cs-dropdown {
+      position: relative;
+    }
+    #cs-navigation .cs-dropdown:hover {
+      cursor: pointer;
+    }
+    #cs-navigation .cs-dropdown:hover .cs-drop-ul {
+      transform: scaleY(1);
+      opacity: 1;
+      visibility: visible;
+    }
+    #cs-navigation .cs-dropdown:hover .cs-drop-li {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #cs-navigation .cs-drop-icon {
+      width: 0.9375rem;
+      height: auto;
+      display: inline-block;
+    }
+    #cs-navigation .cs-drop-ul {
+      min-width: 12.5rem;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      border-bottom: 5px solid var(--primary);
+      /* if you have 8 or more links in your dropdown nav, uncomment the columns property to make the list into 2 even columns. Change it to 3 or 4 if you need extra columns. Then remove the transition delays on the cs-drop-li so they don't have weird scattered animations */
+      position: absolute;
+      top: 100%;
+      z-index: -100;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform .3s, visibility .3s, opacity .3s;
+    }
+    #cs-navigation .cs-drop-li {
+      list-style: none;
+      font-size: 1rem;
+      text-decoration: none;
+      opacity: 0;
+      width: 100%;
+      height: auto;
+      display: block;
+      transform: translateY(-0.625rem);
+      transition: opacity .6s, transform .6s;
+    }
+    #cs-navigation .cs-drop-li:nth-of-type(1) {
+      transition-delay: .05s;
+    }
+    #cs-navigation .cs-drop-li:nth-of-type(2) {
+      transition-delay: .1s;
+    }
+    #cs-navigation .cs-drop-li:nth-of-type(3) {
+      transition-delay: .15s;
+    }
+    #cs-navigation .cs-drop-li:nth-of-type(4) {
+      transition-delay: .2s;
+    }
+    #cs-navigation .cs-drop-li:nth-of-type(5) {
+      transition-delay: .25s;
+    }
+    #cs-navigation .cs-drop-li:nth-of-type(6) {
+      transition-delay: .3s;
+    }
+    #cs-navigation .cs-drop-li:nth-of-type(7) {
+      transition-delay: .35s;
+    }
+    #cs-navigation .cs-drop-li:nth-of-type(8) {
+      transition-delay: .4s;
+    }
+    #cs-navigation .cs-drop-li:nth-of-type(9) {
+      transition-delay: .45s;
+    }
+    #cs-navigation .cs-li-link.cs-drop-link {
+      text-transform: capitalize;
+      white-space: nowrap;
+      width: 100%;
+      font-size: 1rem;
+      line-height: 1.5em;
+      text-decoration: none;
+      padding: 0.75rem;
+      /* prevents padding from affecting height and width */
+      box-sizing: border-box;
+      color: var(--bodyTextColorWhite);
+      display: block;
+      transition: color 0.3s, background-color 0.3s;
+    }
+    #cs-navigation .cs-li-link.cs-drop-link:hover {
+      background-color: var(--primary);
+      color: var(--bodyTextColorWhite);
+    }
+    #cs-navigation .cs-li-link.cs-drop-link:before {
+      display: none;
+    }
+  }
+  
+  /*-- -------------------------- -->
+  <---     Desktop Navigation     -->
+  <--- -------------------------- -*/
+  
+  /* Small Desktop - 1024px */
+  @media only screen and (min-width: 64rem) {
+    #cs-navigation {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      width: 100%;
+      padding: 0 1rem;
+      /* prevents padding from affecting height and width */
+      box-sizing: border-box;
+      background-color: #1a1a1a;
+      position: fixed;
+      z-index: 10000;
+    }
+    #cs-navigation .cs-container {
+      width: 100%;
+      /* same height as the cs-ul-wrapper */
+      height: 5.8125rem;
+      max-width: 80rem;
+      margin: auto;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 1.5rem;
+      position: relative;
+    }
+    #cs-navigation .cs-toggle {
+      display: none;
+    }
+    #cs-navigation .cs-logo {
+      width: 18.4%;
+      max-width: 21.875rem;
+      height: 2rem;
+      /* margin-right auto pushes everything away from it to the right */
+      margin: 0 auto 0 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+    #cs-navigation .cs-logo img {
+      width: 100%;
+      height: 100%;
+      /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
+      object-fit: contain;
+    }
+    #cs-navigation .cs-ul-wrapper {
+      /* absolutely positioned to be dead center */
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #cs-navigation .cs-ul {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      /* 20px - 36px */
+      gap: clamp(1.25rem, 2.6vw, 2.25rem);
+    }
+    #cs-navigation .cs-li {
+      list-style: none;
+      padding: 2.25rem 0;
+      /* prevent flexbox from squishing it */
+      flex: none;
+    }
+    #cs-navigation .cs-li-link {
+      /* 14px - 16px */
+      font-size: clamp(0.875rem, 0.6vw, 1rem);
+      line-height: 1.5em;
+      text-decoration: none;
+      text-transform: uppercase;
+      margin: 0;
+      color: var(--bodyTextColorWhite);
+      display: block;
+      position: relative;
+      transition: color .3s;
+    }
+    #cs-navigation .cs-li-link:hover {
+      color: var(--primary);
+    }
+    #cs-navigation .cs-li-link.cs-active {
+      color: var(--primary);
+    }
+    #cs-navigation .cs-button-solid {
+      font-size: 1rem;
+      /* 46px - 56px */
+      line-height: clamp(2.875em, 5.5vw, 3.5em);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      color: #fff;
+      min-width: 9.375rem;
+      padding: 0 2rem;
+      background-color: var(--primary);
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      /* prevents padding from adding to the width */
+      box-sizing: border-box;
+      transition: color .3s;
+    }
+    #cs-navigation .cs-button-solid:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background: #fff;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: width .3s;
+    }
+    #cs-navigation .cs-button-solid:hover {
+      color: #1a1a1a;
+    }
+    #cs-navigation .cs-button-solid:hover:before {
+      width: 100%;
+    }
+  }
+                                  
+
+  /*-- -------------------------- -->
+<---           Hero             -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #hero-929 {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      padding: var(--sectionPadding);
+      /* 160px - 200px */
+      padding-top: clamp(10rem, 16vw, 12.5rem);
+      padding-bottom: 0;
+      position: relative;
+    }
+    #hero-929 .cs-container {
+      width: 100%;
+      max-width: 80rem;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 48px - 64px */
+      gap: clamp(3rem, 6vw, 4rem);
+      position: relative;
+    }
+    #hero-929 .cs-content {
+      /* set text align to left if content needs to be left aligned */
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: center;
+    }
+    #hero-929 .cs-title {
+      /* 39px - 61px */
+      font-size: clamp(2.4375rem, 6.4vw, 3.8125rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.2em;
+      text-align: inherit;
+      max-width: 68.5rem;
+      /* 8px - 16px */
+      margin: 0 0 clamp(0.5rem, 2vw, 1rem) 0;
+      color: var(--bodyTextColorWhite);
+      position: relative;
+    }
+    #hero-929 .cs-flex {
+      width: 100%;
+      /* removed at small desktop */
+      margin-bottom: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    #hero-929 .cs-content-group {
+      width: 100%;
+      /* changes to 352px at small desktop */
+      max-width: 43.75rem;
+    }
+    #hero-929 .cs-text {
+      font-size: var(--bodyFontSize);
+      line-height: 1.5em;
+      text-align: inherit;
+      width: 100%;
+      max-width: 40.625rem;
+      margin: 0 auto 1.75rem auto;
+      color: #f7f7f7;
+    }
+    #hero-929 .cs-button-solid {
+      font-size: 1rem;
+      /* 46px - 56px */
+      line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      color: #000;
+      min-width: 9.375rem;
+      padding: 0 2rem;
+      background-color: var(--primary);
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      /* prevents padding from adding to the width */
+      box-sizing: border-box;
+    }
+    #hero-929 .cs-button-solid:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background: #552583;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: width .3s;
+    }
+    #hero-929 .cs-button-solid:hover:before {
+      width: 100%;
+    }
+    #hero-929 .cs-hours-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      row-gap: 1.25rem;
+      column-gap: 1.5rem;
+    }
+    #hero-929 .cs-header {
+      /* 20px - 25px */
+      font-size: clamp(1.25rem, 2vw, 1.5625rem);
+      line-height: 1.2em;
+      font-weight: bold;
+      text-align: center;
+      width: 100%;
+      color: var(--bodyTextColorWhite);
+      display: block;
+    }
+    #hero-929 .cs-hours {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    #hero-929 .cs-day {
+      font-size: 1rem;
+      line-height: 1.2em;
+      font-weight: bold;
+      color: var(--primary);
+      display: block;
+    }
+    #hero-929 .cs-time {
+      font-size: 1rem;
+      line-height: 1.5em;
+      margin: 0;
+      color: #f7f7f7;
+      display: block;
+    }
+    #hero-929 .cs-picture-group {
+      position: relative;
+    }
+    #hero-929 .cs-tagline {
+      /* 52px - 62px */
+      font-size: clamp(3.25rem, 7vw, 3.875rem);
+      font-family: 'Mr Dafoe', cursive;
+      line-height: .9em;
+      max-width: 5ch;
+      margin: 0 auto -2.125rem;
+      color: var(--primary);
+      display: block;
+      transform: rotate(-14.36deg) translateX(-6.25rem);
+    }
+    #hero-929 .cs-picture {
+      width: 100%;
+      height: auto;
+      max-height: 37.375rem;
+      display: flex;
+      align-items: flex-end;
+    }
+    #hero-929 .cs-picture img {
+      width: 28%;
+      height: 20%;
+      padding-left: 35%;
+    }
+    #hero-929 .cs-background {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    #hero-929 .cs-background:before {
+      /* background color overlay */
+      content: '';
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 100%;
+      background: #1a1a1a;
+      opacity: .96;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    #hero-929 .cs-background img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      /* Makes img tag act as a background image */
+      object-fit: cover;
+    }
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #hero-929 .cs-header {
+      text-align: left;
+      width: auto;
+      /* removed at small desktop */
+      max-width: 8ch;
+    }
+  }
+  /* Small Desktop - 1024px */
+  @media only screen and (min-width: 64rem) {
+    #hero-929 .cs-flex {
+      margin: 0;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+      position: absolute;
+      /* 80px - 100px */
+      bottom: clamp(5rem, 8vw, 6.25rem);
+    }
+    #hero-929 .cs-content-group {
+      text-align: left;
+      width: 24vw;
+      max-width: 22rem;
+    }
+    #hero-929 .cs-hours-group {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    #hero-929 .cs-header {
+      max-width: 100%;
+    }
+    #hero-929 .cs-picture-group {
+      margin-top: -3.125rem;
+    }
+    #hero-929 .cs-tagline {
+      margin: 0;
+      position: absolute;
+      /* changes at large desktop */
+      left: 3.75rem;
+      /* 90px - 130px */
+      top: clamp(5.625rem, 10vw, 8.125rem);
+    }
+  }
+  /* Large Desktop 1300px */
+  @media only screen and (min-width: 81.25rem) {
+    #hero-929 .cs-hours-group {
+      max-width: 20rem;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+    #hero-929 .cs-header {
+      width: 100%;
+    }
+    #hero-929 .cs-tagline {
+      left: 1.625rem;
+      top: 8.125rem;
+    }
+  }
+
+
+  /*-- -------------------------- -->
+<---          Services          -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #services-969 {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      padding: 0;
+      background: url("https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/chevron-gold.svg");
+      background-size: auto;
+      background-position: center;
+      background-repeat: repeat;
+      background-color: #1a1a1a;
+      position: relative;
+      z-index: 1;
+    }
+    #services-969 .cs-container {
+      width: 100%;
+      /* changes to 1280px at tablet */
+      max-width: 34.375rem;
+      margin: auto;
+      padding: var(--sectionPadding);
+      /* prevents padding from affecting height and width */
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 48px - 64px */
+      gap: clamp(3rem, 6vw, 4rem);
+    }
+    #services-969 .cs-content {
+      /* set text align to left if content needs to be left aligned */
+      text-align: center;
+      width: 100%;
+      max-width: 54.25rem;
+      display: flex;
+      flex-direction: column;
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: center;
+    }
+    #services-969 .cs-topper {
+      font-size: var(--topperFontSize);
+      line-height: 1.2em;
+      text-transform: uppercase;
+      text-align: inherit;
+      letter-spacing: .1em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+    #services-969 .cs-title {
+      font-size: var(--headerFontSize);
+      font-weight: 900;
+      line-height: 1.2em;
+      text-align: inherit;
+      max-width: 43.75rem;
+      margin: 0 0 1rem 0;
+      color: var(--headerColor);
+      position: relative;
+    }
+    #services-969 .cs-text {
+      font-size: var(--bodyFontSize);
+      line-height: 1.5em;
+      text-align: inherit;
+      width: 100%;
+      max-width: 40.625rem;
+      margin: 0;
+      color: var(--bodyTextColor);
+    }
+    #services-969 .cs-title {
+      /* Override.  cs-topper cs-title and first cs-text should be removed and put into your global css sheet so it can control every instance of them on your site and is consistent. This selector is a section specific override that stays inside this stitch */
+      max-width: 17ch;
+      color: var(--bodyTextColorWhite);
+    }
+    #services-969 .cs-text {
+      /* Override.  cs-topper cs-title and first cs-text should be removed and put into your global css sheet so it can control every instance of them on your site and is consistent. This selector is a section specific override that stays inside this stitch */
+      color: var(--bodyTextColorWhite);
+      opacity: .8;
+    }
+    #services-969 .cs-card-group {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      max-width: 54.25rem;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.875rem;
+    }
+    #services-969 .cs-item {
+      width: 100%;
+      text-align: left;
+      list-style: none;
+      /* margin top value to match the negative margin value of the .cs-icon-wrapper */
+      margin: 2.75rem 0 0 0;
+      /* 24px - 64px bottom */
+      /* 24px - 40px left & right */
+      padding: 0 clamp(1.5rem, 4vw, 2.5rem) clamp(1.5rem, 6vw, 4rem);
+      background-color: #F7F3EE;
+      /* prevents padding from affecting height and width */
+      box-sizing: border-box;
+      grid-column: span 12;
+      grid-row: span 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    #services-969 .cs-item:hover .cs-h3 {
+      color: var(--bodyTextColorWhite);
+    }
+    #services-969 .cs-item:hover .cs-item-text {
+      color: var(--bodyTextColorWhite);
+      opacity: .9;
+    }
+    #services-969 .cs-item:hover .cs-background {
+      opacity: 1;
+    }
+    #services-969 .cs-icon-wrapper {
+      width: 5.5rem;
+      height: 5.5rem;
+      margin: -2.75rem auto 2rem 0;
+      background-color: var(--primary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      left: calc(clamp(1.5rem, 4vw, 2.5rem)*-1);
+    }
+    #services-969 .cs-icon {
+      width: 2.5rem;
+      height: auto;
+    }
+    #services-969 .cs-h3 {
+      /* 20px - 25px */
+      font-size: clamp(1.25rem, 2.5vw, 1.5625rem);
+      line-height: 1.2em;
+      font-weight: bold;
+      text-align: inherit;
+      margin: 0 0 0.75rem 0;
+      color: var(--headerColor);
+    }
+    #services-969 .cs-item-text {
+      /* 14px - 16px */
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      line-height: 1.5em;
+      max-width: 18.75rem;
+      margin: 0 0 2rem 0;
+      padding: 0;
+      color: var(--bodyTextColor);
+    }
+    #services-969 .cs-link {
+      text-decoration: none;
+      font-size: 0.8rem;
+      line-height: 1.2em;
+      font-weight: bold;
+      width: auto;
+      margin: 0;
+      padding: 0;
+      color: var(--primary);
+      display: inline-block;
+      position: relative;
+      transition: color .3s;
+    }
+    #services-969 .cs-link:hover {
+      color: #fff;
+    }
+    #services-969 .cs-link:before {
+      /* underline */
+      content: '';
+      width: 100%;
+      height: 1px;
+      background: currentColor;
+      opacity: 1;
+      position: absolute;
+      display: block;
+      bottom: 0rem;
+      left: 0;
+    }
+    #services-969 .cs-picture {
+      display: block;
+      position: relative;
+      width: 100%;
+      /* 360px - 430px */
+      height: clamp(22.5rem, 65vw, 26.875rem);
+    }
+    #services-969 .cs-picture img {
+      position: absolute;
+      top: 10%;
+      left: 30%;
+      height: 80%;
+      width: 75%;
+      object-fit: cover;
+    }
+    #services-969 .cs-background {
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: opacity .3s;
+    }
+    #services-969 .cs-background:before {
+      /* background color overlay */
+      content: '';
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 100%;
+      background: #1A1A1A;
+      opacity: .84;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    #services-969 .cs-background img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      /* Makes img tag act as a background image */
+      object-fit: cover;
+    }
+    #services-969 .cs-waves {
+      width: 100%;
+      height: 13.875rem;
+      background-color: var(--primary);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+    }
+    #services-969 .cs-waves img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #services-969 .cs-container {
+      max-width: 80rem;
+    }
+    #services-969 .cs-item {
+      grid-column: span 6;
+    }
+  }
+  /* Large Desktop - 1024px */
+  @media only screen and (min-width: 81.25rem) {
+    #services-969 {
+      padding: var(--sectionPadding);
+      position: relative;
+      z-index: 1;
+    }
+    #services-969 .cs-container {
+      padding: 0;
+      align-items: flex-end;
+    }
+    #services-969 .cs-content {
+      text-align: left;
+      align-items: flex-start;
+    }
+    #services-969 .cs-picture {
+      height: 100%;
+      width: 40vw;
+      margin-right: 20.0625rem;
+      position: absolute;
+      right: 50%;
+      top: 0;
+    }
+  }
+
+  /*-- -------------------------- -->
+<---    Side By Side Reverse    -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #sbsr-956 {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      padding: var(--sectionPadding);
+      background-color: #1a1a1a;
+      /* clips anything overflowing */
+      overflow: hidden;
+      position: relative;
+    }
+    #sbsr-956 .cs-container {
+      width: 100%;
+      /* changes to 1280px at desktop */
+      max-width: 34.375rem;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 48px - 64px */
+      gap: clamp(3rem, 6vw, 4rem);
+    }
+    #sbsr-956 .cs-content {
+      /* set text align to left if content needs to be left aligned */
+      text-align: left;
+      width: 100%;
+      max-width: 33.875rem;
+      display: flex;
+      flex-direction: column;
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: flex-start;
+    }
+    #sbsr-956 .cs-topper {
+      font-size: var(--topperFontSize);
+      line-height: 1.2em;
+      text-transform: uppercase;
+      text-align: inherit;
+      letter-spacing: .1em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+    #sbsr-956 .cs-title {
+      font-size: var(--headerFontSize);
+      font-weight: 900;
+      line-height: 1.2em;
+      text-align: inherit;
+      max-width: 43.75rem;
+      margin: 0 0 1rem 0;
+      color: var(--headerColor);
+      position: relative;
+    }
+    #sbsr-956 .cs-text {
+      font-size: var(--bodyFontSize);
+      line-height: 1.5em;
+      text-align: inherit;
+      width: 100%;
+      max-width: 40.625rem;
+      margin: 0;
+      color: var(--bodyTextColor);
+    }
+    #sbsr-956 .cs-title,
+    #sbsr-956 .cs-text {
+      color: var(--bodyTextColorWhite);
+    }
+    #sbsr-956 .cs-text {
+      /* Override.  cs-topper cs-title and first cs-text should be removed and put into your global css sheet so it can control every instance of them on your site and is consistent. This selector is a section specific override that stays inside this stitch */
+      margin-bottom: 1rem;
+      opacity: .8;
+    }
+    #sbsr-956 .cs-text:last-of-type {
+      margin-bottom: 2rem;
+    }
+    #sbsr-956 .cs-button-solid {
+      font-size: 1rem;
+      /* 46px - 56px */
+      line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      color: #fff;
+      min-width: 9.375rem;
+      padding: 0 2rem;
+      background-color: var(--primary);
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      /* prevents padding from adding to the width */
+      box-sizing: border-box;
+    }
+    #sbsr-956 .cs-button-solid:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background: #000;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: width .3s;
+    }
+    #sbsr-956 .cs-button-solid:hover:before {
+      width: 100%;
+    }
+    #sbsr-956 .cs-image-group {
+      width: 100%;
+      max-width: 40.625rem;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      /* 16px - 20px */
+      gap: clamp(1rem, 1.5vw, 1.25rem);
+    }
+    #sbsr-956 .cs-picture {
+      width: 100%;
+      grid-column: span 12;
+      position: relative;
+    }
+    #sbsr-956 .cs-picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    #sbsr-956 .cs-picture1 {
+      height: 26.25rem;
+    }
+    #sbsr-956 .cs-picture2 {
+      height: 21.75rem;
+    }
+    #sbsr-956 .cs-floater {
+      display: none;
+    }
+    #sbsr-956 .cs-flex {
+      width: 100%;
+      /* breaks up the container so the browser treats its children as if they are not inside this container. They are considered children of the .cs-image-group and makes it easier to space everything this way on mobile */
+      display: contents;
+    }
+    #sbsr-956 .cs-contact-group {
+      width: 100%;
+      margin: 0;
+      /* 24px - 40px */
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      /* prevents padding from affecting height and width */
+      box-sizing: border-box;
+      border: 1px solid #484848;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+      grid-column: span 12;
+    }
+    #sbsr-956 .cs-link {
+      text-decoration: none;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid #484848;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    #sbsr-956 .cs-link:hover .cs-wrapper {
+      transform: scale(1.2);
+    }
+    #sbsr-956 .cs-link:last-of-type {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    #sbsr-956 .cs-wrapper {
+      /* 44px - 56px */
+      width: clamp(2.75rem, 4.3vw, 3.5rem);
+      height: clamp(2.75rem, 4.3vw, 3.5rem);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* prevents flexbox from squishing it */
+      flex: none;
+      position: relative;
+      transition: transform .3s;
+    }
+    #sbsr-956 .cs-wrapper:before {
+      /* light grey circle that animates on hover */
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: #484848;
+      opacity: 1;
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: width .3s, height .3s;
+    }
+    #sbsr-956 .cs-icon {
+      width: 1.5rem;
+      height: auto;
+      display: block;
+      transition: transform .3s;
+    }
+    #sbsr-956 .cs-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+    #sbsr-956 .cs-header {
+      font-size: 1rem;
+      line-height: 1.2em;
+      font-weight: 700;
+      margin: 0;
+      color: var(--bodyTextColorWhite);
+      display: block;
+    }
+    #sbsr-956 .cs-link-content {
+      font-size: 0.875rem;
+      line-height: 1.2em;
+      font-weight: 400;
+      margin: 0;
+      color: var(--bodyTextColorWhite);
+      opacity: .8;
+      display: block;
+    }
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #sbsr-956 .cs-image-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+    }
+    #sbsr-956 .cs-flex {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 16px - 20px */
+      gap: clamp(1rem, 2vw, 1.25rem);
+    }
+    #sbsr-956 .cs-contact-group {
+      /* 32px - 64px */
+      margin-bottom: clamp(2rem, 6vw, 4rem);
+      /* prevents flexbox from squishing it */
+      flex: none;
+    }
+    #sbsr-956 .cs-picture1 {
+      width: 100%;
+      height: auto;
+      /* 32px - 64px */
+      margin-top: clamp(2rem, 6vw, 4rem);
+    }
+    #sbsr-956 .cs-flex {
+      /* 267px - 325px */
+      width: clamp(16.6875rem, 25vw, 20.3125rem);
+      /* prevents flexbox from squishing it */
+      flex: none;
+      /* sends it to the far left */
+      order: -1;
+    }
+  }
+  /* Small Desktop - 1024px */
+  @media only screen and (min-width: 64rem) {
+    #sbsr-956 .cs-container {
+      max-width: 80rem;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #sbsr-956 .cs-image-group {
+      width: 50%;
+      /* prevents flexbox from squishing it */
+      flex: none;
+      /* sends it to the right in the 2nd position */
+      order: 2;
+    }
+  }
+  /* Large Desktop - 1800px */
+  @media only screen and (min-width: 112.5rem) {
+    #sbsr-956 .cs-floater {
+      width: 12.5rem;
+      height: auto;
+      display: block;
+      position: absolute;
+      left: 2.125rem;
+      top: 1.25rem;
+      transform: scaleX(-1);
+    }
+  }
+
+  /*-- -------------------------- -->
+<---          Pricing           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #pricing-861 {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      padding: var(--sectionPadding);
+    }
+    #pricing-861 .cs-container {
+      width: 100%;
+      /* changes to 1280px at tablet */
+      max-width: 31.25rem;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 48px - 64px */
+      gap: clamp(3rem, 6vw, 4rem);
+      position: relative;
+    }
+    #pricing-861 .cs-content {
+      /* set text align to left if content needs to be left aligned */
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: center;
+    }
+    #pricing-861 .cs-topper {
+      font-size: var(--topperFontSize);
+      line-height: 1.2em;
+      text-transform: uppercase;
+      text-align: inherit;
+      letter-spacing: .1em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+    #pricing-861 .cs-title {
+      font-size: var(--headerFontSize);
+      font-weight: 900;
+      line-height: 1.2em;
+      text-align: inherit;
+      max-width: 43.75rem;
+      margin: 0 0 1rem 0;
+      color: var(--headerColor);
+      position: relative;
+    }
+    #pricing-861 .cs-text {
+      font-size: var(--bodyFontSize);
+      line-height: 1.5em;
+      text-align: inherit;
+      width: 100%;
+      max-width: 40.625rem;
+      margin: 0;
+      color: var(--bodyTextColor);
+    }
+    #pricing-861 .cs-title {
+      /* Override.  cs-topper cs-title and first cs-text should be removed and put into your global css sheet so it can control every instance of them on your site and is consistent. This selector is a section specific override that stays inside this stitch */
+      max-width: 25ch;
+    }
+    #pricing-861 .cs-text {
+      /* Override.  cs-topper cs-title and first cs-text should be removed and put into your global css sheet so it can control every instance of them on your site and is consistent. This selector is a section specific override that stays inside this stitch */
+      max-width: 56.25rem;
+    }
+    #pricing-861 .cs-card-group {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      /* 16px - 20px */
+      gap: clamp(1rem, 1.8vw, 1.25rem);
+    }
+    #pricing-861 .cs-item {
+      list-style: none;
+      width: 100%;
+      margin: 0;
+      /* 20px - 32px left & right */
+      /* 20px - 32px bottom */
+      padding: 0 clamp(1.25rem, 3vw, 2rem) clamp(1.25rem, 3vw, 2rem);
+      /* prevent padding from affecting height and width */
+      box-sizing: border-box;
+      background-color: #fff;
+      border: 1px solid #F4F4F4;
+      /* clips corners */
+      overflow: hidden;
+      border-radius: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      grid-column: span 12;
+    }
+    #pricing-861 .cs-item.cs-popular .cs-background {
+      background-color: #1A1A1A;
+    }
+    #pricing-861 .cs-item.cs-popular .cs-background img {
+      opacity: 1;
+    }
+    #pricing-861 .cs-item.cs-popular .cs-package {
+      color: var(--primary);
+    }
+    #pricing-861 .cs-item.cs-popular .cs-price,
+    #pricing-861 .cs-item.cs-popular .cs-desc {
+      color: var(--bodyTextColorWhite);
+    }
+    #pricing-861 .cs-item.cs-popular .cs-desc {
+      opacity: .8;
+    }
+    #pricing-861 .cs-top {
+      padding: 2.5rem 0;
+      /* prevents padding from affecting height and width */
+      box-sizing: border-box;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-end;
+      position: relative;
+      z-index: 1;
+    }
+    #pricing-861 .cs-background {
+      background-color: #FEF7F4;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      /* same as cs-item padding left and right */
+      left: -2rem;
+      right: -2rem;
+      z-index: -1;
+    }
+    #pricing-861 .cs-background img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      opacity: 0;
+    }
+    #pricing-861 .cs-package {
+      font-size: 1rem;
+      line-height: .75em;
+      text-align: center;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      width: 100%;
+      margin: 0;
+      color: #767676;
+      display: block;
+    }
+    #pricing-861 .cs-price {
+      /* 39px - 49px */
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      line-height: 1.2em;
+      text-align: center;
+      font-weight: 900;
+      margin: 0;
+      padding-left: 10%;
+      padding-right: 10%;
+      color: var(--headerColor);
+      display: block;
+      /* so it's even with the bottom of the cs-desc */
+      transform: translateY(0.5625rem);
+    }
+    #pricing-861 .cs-desc {
+      font-size: 1.5rem;
+      line-height: 1.5em;
+      text-align: center;
+      margin: 1.2rem 0 0 .8rem;
+      color: var(--bodyTextColor);
+      opacity: .8;
+      display: block;
+    }
+    #pricing-861 .cs-ul {
+      /* 24px - 40px */
+      margin: clamp(1.5rem, 4vw, 2.5rem) 0 2rem 0;
+      padding: 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    #pricing-861 .cs-li {
+      /* 14px - 16px */
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      list-style: none;
+      line-height: 1.2em;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      color: var(--bodyTextColor);
+      display: flex;
+      justify-content: space-between;
+      /* push everything to the top so if the li goes to two lines the icon stays at the top */
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    #pricing-861 .cs-li.cs-disabled {
+      opacity: .4;
+      filter: grayscale(1);
+    }
+    #pricing-861 .cs-icon {
+      width: 1.125rem;
+      height: auto;
+      display: block;
+    }
+    #pricing-861 .cs-button-solid {
+      font-size: 1rem;
+      /* 46px - 56px */
+      line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      color: #fff;
+      min-width: 9.375rem;
+      padding: 0 1.5rem;
+      background-color: var(--primary);
+      border-radius: 0.25rem;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      /* prevents padding from adding to the width */
+      box-sizing: border-box;
+    }
+    #pricing-861 .cs-button-solid:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background: #000;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      border-radius: 0.25rem;
+      transition: width .3s;
+    }
+    #pricing-861 .cs-button-solid:hover:before {
+      width: 100%;
+    }
+    #pricing-861 .cs-price-button {
+      /* pushes up against the cs-ul so if there's loess li's in the list, the button always pushes itself to the bottom */
+      margin-top: auto;
+      width: 100%;
+      border-radius: 0;
+    }
+    #pricing-861 .cs-price-button:before {
+      border-radius: 0;
+    }
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #pricing-861 .cs-container {
+      max-width: 80rem;
+    }
+    #pricing-861 .cs-item {
+      grid-column: span 6;
+    }
+    #pricing-861 .cs-item.cs-popular {
+      grid-column: span 12;
+      order: -1;
+    }
+  }
+  /* Tablet - 900px */
+  @media only screen and (min-width: 59.375rem) {
+    #pricing-861 .cs-item {
+      grid-column: span 4;
+    }
+    #pricing-861 .cs-item.cs-popular {
+      grid-column: span 4;
+      order: initial;
+    }
+  }
+
+  /*-- -------------------------- -->
+<---    Side By Side Reverse    -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #sbsr-73 {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      padding: var(--sectionPadding);
+      background-color: #1a1a1a;
+    }
+    #sbsr-73 .cs-container {
+      width: 100%;
+      /* changes to 1280px at tablet */
+      max-width: 34.375rem;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 48px - 64px */
+      gap: clamp(3rem, 6vw, 4rem);
+    }
+    #sbsr-73 .cs-content {
+      /* set text align to left if content needs to be left aligned */
+      text-align: left;
+      width: 100%;
+      max-width: 33.875rem;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: flex-start;
+    }
+    #sbsr-73 .cs-topper {
+      font-size: var(--topperFontSize);
+      line-height: 1.2em;
+      text-transform: uppercase;
+      text-align: inherit;
+      letter-spacing: .1em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+    #sbsr-73 .cs-title {
+      font-size: var(--headerFontSize);
+      font-weight: 900;
+      line-height: 1.2em;
+      text-align: inherit;
+      max-width: 43.75rem;
+      margin: 0 0 1rem 0;
+      color: var(--headerColor);
+      position: relative;
+    }
+    #sbsr-73 .cs-text {
+      font-size: var(--bodyFontSize);
+      line-height: 1.5em;
+      text-align: inherit;
+      width: 100%;
+      max-width: 40.625rem;
+      margin: 0;
+      color: var(--bodyTextColor);
+    }
+    #sbsr-73 .cs-text {
+      /* Override.  cs-topper cs-title and first cs-text should be removed and put into your global css sheet so it can control every instance of them on your site and is consistent. This selector is a section specific override that stays inside this stitch */
+      margin-bottom: 1rem;
+    }
+    #sbsr-73 .cs-text:last-of-type {
+      margin-bottom: 2rem;
+    }
+    #sbsr-73 .cs-title {
+      /* Override.  cs-topper cs-title and first cs-text should be removed and put into your global css sheet so it can control every instance of them on your site and is consistent. This selector is a section specific override that stays inside this stitch */
+      color: var(--bodyTextColorWhite);
+    }
+    #sbsr-73 .cs-text {
+      /* Override.  cs-topper cs-title and first cs-text should be removed and put into your global css sheet so it can control every instance of them on your site and is consistent. This selector is a section specific override that stays inside this stitch */
+      color: var(--bodyTextColorWhite);
+      opacity: .8;
+    }
+    #sbsr-73 .cs-button-solid {
+      font-size: 1rem;
+      /* 46px - 56px */
+      line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      color: #fff;
+      min-width: 9.375rem;
+      padding: 0 1.5rem;
+      background-color: var(--primary);
+      border-radius: 0.25rem;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      /* prevents padding from adding to the width */
+      box-sizing: border-box;
+    }
+    #sbsr-73 .cs-button-solid:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background: #000;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      border-radius: 0.25rem;
+      transition: width .3s;
+    }
+    #sbsr-73 .cs-button-solid:hover:before {
+      width: 100%;
+    }
+    #sbsr-73 .cs-picture {
+      width: 95%;
+      max-width: 34.375rem;
+      margin: 0;
+      position: relative;
+      display: block;
+      /* width divided by height */
+      aspect-ratio: 0.93134328;
+      border-radius: 1rem;
+      z-index: 1;
+    }
+    #sbsr-73 .cs-picture:before {
+      /* Top right box */
+      content: '';
+      width: 10rem;
+      /* 202px - 248px */
+      height: clamp(12.625rem, 25vw, 15.5rem);
+      background: var(--primary);
+      opacity: 1;
+      border-radius: 1rem;
+      position: absolute;
+      display: block;
+      /* 16px -20px */
+      /* wrapped in a calc function to get a negative clamp value */
+      top: calc(clamp(.5rem, 2.09vw, 1.25rem) * -1);
+      right: calc(clamp(.5rem, 2.09vw, 1.25rem) * -1);
+    }
+    #sbsr-73 .cs-picture:after {
+      /* Bottom left box */
+      content: '';
+      width: 10rem;
+      /* 202px - 248px */
+      height: clamp(12.625rem, 25vw, 15.5rem);
+      background: var(--primary);
+      opacity: 1;
+      border-radius: 1rem;
+      position: absolute;
+      display: block;
+      /* 16px -20px */
+      /* wrapped in a calc function to get a negative clamp value */
+      bottom: calc(clamp(.5rem, 2.09vw, 1.25rem) * -1);
+      left: calc(clamp(.5rem, 2.09vw, 1.25rem) * -1);
+      z-index: -1;
+    }
+    #sbsr-73 .cs-picture img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 1rem;
+    }
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #sbsr-73 .cs-container {
+      max-width: 80rem;
+      flex-direction: row;
+      justify-content: flex-end;
+      /* 60px - 128px */
+      gap: clamp(3.75rem, 9.5vw, 8rem);
+    }
+    #sbsr-73 .cs-picture {
+      /* 328px - 502px */
+      width: clamp(20.5rem, 37.5vw, 31.375rem);
+      /* 440px - 520px */
+      height: clamp(27.5rem, 40vw, 32.5rem);
+      /* 16px - 20px */
+      margin: 0 0 0 clamp(1rem, 5vw, 1.25rem);
+      flex: none;
+      /* sends it to the right in the 2nd position */
+      order: 2;
+    }
+    #sbsr-73 .cs-content {
+      width: 45%;
+      margin: 0;
+    }
+  }
+
+  /*-- -------------------------- -->
+<---          Contact           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #contact-983 {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      padding: var(--sectionPadding);
+      position: relative;
+    }
+    #contact-983 .cs-container {
+      width: 100%;
+      /* changes to 1064px at tablet */
+      max-width: 34.375rem;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    #contact-983 .cs-content {
+      /* set text align to left if content needs to be left aligned */
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: center;
+    }
+    #contact-983 .cs-topper {
+      font-size: var(--topperFontSize);
+      line-height: 1.2em;
+      text-transform: uppercase;
+      text-align: inherit;
+      letter-spacing: .1em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+    #contact-983 .cs-title {
+      font-size: var(--headerFontSize);
+      font-weight: 900;
+      line-height: 1.2em;
+      text-align: inherit;
+      max-width: 43.75rem;
+      margin: 0 0 1rem 0;
+      color: var(--headerColor);
+      position: relative;
+    }
+    #contact-983 .cs-text {
+      font-size: var(--bodyFontSize);
+      line-height: 1.5em;
+      text-align: inherit;
+      width: 100%;
+      max-width: 40.625rem;
+      margin: 0;
+      color: var(--bodyTextColor);
+    }
+    #contact-983 .cs-title {
+      /* Override.  cs-topper cs-title and first cs-text should be removed and put into your global css sheet so it can control every instance of them on your site and is consistent. This selector is a section specific override that stays inside this stitch */
+      color: var(--bodyTextColorWhite);
+    }
+    #contact-983 .cs-form {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 0.75rem;
+    }
+    #contact-983 .cs-label {
+      font-size: 1rem;
+      line-height: 1.5em;
+      width: 100%;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.5rem;
+      grid-column: span 12;
+    }
+    #contact-983 .cs-input {
+      font-family: inherit;
+      font-size: 1rem;
+      width: 100%;
+      height: 3.5rem;
+      padding-left: 1.5rem;
+      /* prevents padding from affecting height and width */
+      box-sizing: border-box;
+      color: #fff;
+      background-color: #484848;
+      border: none;
+    }
+    #contact-983 .cs-input::placeholder {
+      padding-top: 1rem;
+      color: #fff;
+      opacity: .5;
+    }
+    #contact-983 .cs-textarea {
+      height: 7.5rem;
+      margin-bottom: 2rem;
+    }
+    #contact-983 .cs-button-solid {
+      font-size: 1rem;
+      /* 46px - 56px */
+      line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      color: #fff;
+      min-width: 9.375rem;
+      padding: 0 2rem;
+      background-color: var(--primary);
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      /* prevents padding from adding to the width */
+      box-sizing: border-box;
+    }
+    #contact-983 .cs-button-solid:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background: #000;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: width .3s;
+    }
+    #contact-983 .cs-button-solid:hover:before {
+      width: 100%;
+    }
+    #contact-983 .cs-submit {
+      border: none;
+    }
+    #contact-983 .cs-submit:hover {
+      cursor: pointer;
+    }
+    #contact-983 .cs-background {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    #contact-983 .cs-background:before {
+      /* background color overlay */
+      content: '';
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 100%;
+      background: #1a1a1a;
+      opacity: .9;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    #contact-983 .cs-background img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      /* Makes img tag act as a background image */
+      object-fit: cover;
+    }
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #contact-983 .cs-container {
+      max-width: 66.5rem;
+    }
+    #contact-983 .cs-label {
+      grid-column: span 6;
+    }
+    #contact-983 .cs-message {
+      grid-column: span 12;
+    }
+    #contact-983 .cs-wrapper {
+      grid-column: span 12;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+                                  
+                                  
+                                  
+
+  /*-- -------------------------- -->
+<---            FAQ             -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #faq-489 {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      padding: var(--sectionPadding);
+      background: #FAFBFC;
+    }
+    #faq-489 .cs-container {
+      width: 100%;
+      /* changes to 1280px at tablet */
+      max-width: 34.375rem;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      /* 40px - 48px */
+      gap: clamp(2.5rem, 5vw, 3rem);
+    }
+    #faq-489 .cs-content {
+      /* set text align to left if content needs to be left aligned */
+      text-align: left;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: flex-start;
+    }
+    #faq-489 .cs-topper {
+      font-size: var(--topperFontSize);
+      line-height: 1.2em;
+      text-transform: uppercase;
+      text-align: inherit;
+      letter-spacing: .1em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+    #faq-489 .cs-title {
+      font-size: var(--headerFontSize);
+      font-weight: 900;
+      line-height: 1.2em;
+      text-align: inherit;
+      max-width: 43.75rem;
+      margin: 0 0 1rem 0;
+      color: var(--headerColor);
+      position: relative;
+    }
+    #faq-489 .cs-color {
+      color: var(--primary);
+    }
+    #faq-489 .cs-text {
+      font-size: var(--bodyFontSize);
+      line-height: 1.5em;
+      text-align: inherit;
+      width: 100%;
+      max-width: 40.625rem;
+      margin: 0;
+      color: var(--bodyTextColor);
+    }
+    #faq-489 .cs-title {
+      /* cs-title override.  cs-topper cs-title and first cs-text should be removed and put into your global css sheet so it can control every instance of them on your site and is consistent. This second cs-text is a section specific override that stays inside this stitch */
+      /* 17 characters wide including spaces */
+      max-width: 17ch;
+    }
+    #faq-489 .cs-text {
+      /* cs-text override.  cs-topper cs-title and first cs-text should be removed and put into your global css sheet so it can control every instance of them on your site and is consistent. This second cs-text is a section specific override that stays inside this stitch */
+      /* 32px - 48px */
+      margin-bottom: clamp(2rem, 3vw, 3rem);
+    }
+    #faq-489 .cs-button-solid {
+      font-size: 1rem;
+      /* 46px - 56px */
+      line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      color: #fff;
+      min-width: 9.375rem;
+      padding: 0 1.5rem;
+      background-color: var(--primary);
+      border-radius: 0.25rem;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      /* prevents padding from adding to the width */
+      box-sizing: border-box;
+    }
+    #faq-489 .cs-button-solid:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background: #000;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      border-radius: 0.25rem;
+      transition: width .3s;
+    }
+    #faq-489 .cs-button-solid:hover:before {
+      width: 100%;
+    }
+    #faq-489 .cs-faq-group {
+      max-width: 46.25rem;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    #faq-489 .cs-faq-item {
+      list-style: none;
+      width: 100%;
+      /* prevents border from affecting width and height */
+      box-sizing: border-box;
+      border: 1px solid #F1F1F4;
+      transition: border 0.3s, padding 0.3s, border-color 0.3s;
+    }
+    #faq-489 .cs-faq-item:hover {
+      border-color: var(--primary);
+    }
+    #faq-489 .cs-faq-item.active {
+      padding-bottom: 1rem;
+      border-color: var(--primary);
+    }
+    #faq-489 .cs-faq-item.active .cs-button {
+      color: var(--primary);
+    }
+    #faq-489 .cs-faq-item.active .cs-button:before {
+      transform: translateY(-50%) rotate(180deg);
+      opacity: 0;
+      background-color: var(--primary);
+    }
+    #faq-489 .cs-faq-item.active .cs-button:after {
+      transform: translateY(-50%) rotate(360deg);
+      background-color: var(--primary);
+    }
+    #faq-489 .cs-faq-item.active .cs-item-p {
+      height: auto;
+      margin-top: 0.5rem;
+      opacity: 1;
+    }
+    #faq-489 .cs-button {
+      /* 20px - 25px */
+      font-size: clamp(1.25rem, 1vw, 1.5625rem);
+      line-height: 1.2em;
+      text-align: left;
+      font-weight: bold;
+      padding: 1rem 1.5rem;
+      border: none;
+      background: transparent;
+      color: var(--headerColor);
+      display: block;
+      width: 100%;
+      position: relative;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    #faq-489 .cs-button:hover {
+      cursor: pointer;
+    }
+    #faq-489 .cs-button:before {
+      /* horizontal line */
+      content: '';
+      width: 1rem;
+      height: 0.1875rem;
+      background-color: currentColor;
+      opacity: 1;
+      border-radius: 1px;
+      position: absolute;
+      display: block;
+      top: 50%;
+      right: 1.5rem;
+      transform: translateY(-50%);
+      transition: transform .5s, opacity .3s;
+    }
+    #faq-489 .cs-button:after {
+      /* vertical line */
+      content: '';
+      width: 1rem;
+      height: 0.1875rem;
+      background-color: currentColor;
+      opacity: 1;
+      border-radius: 1px;
+      position: absolute;
+      display: block;
+      top: 50%;
+      right: 1.5rem;
+      transform: translateY(-50%) rotate(90deg);
+      transform-origin: center;
+      transition: transform .5s;
+    }
+    #faq-489 .cs-button-text {
+      width: 80%;
+      display: block;
+    }
+    #faq-489 .cs-item-p {
+      /* 14px - 16px */
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      line-height: 1.5em;
+      width: 90%;
+      height: 0;
+      margin: 0;
+      /* prevents padding from affecting height and width */
+      box-sizing: border-box;
+      padding: 0 1.5rem;
+      opacity: 0;
+      color: var(--bodyTextColor);
+      /* clips the text so it doesn't show up */
+      overflow: hidden;
+      transition: opacity 0.3s, padding-bottom 0.3s;
+    }
+  }
+  /* Desktop - 1024px */
+  @media only screen and (min-width: 48rem) {
+    #faq-489 .cs-container {
+      max-width: 80rem;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 3.25rem;
+    }
+    #faq-489 .cs-content {
+      margin-top: 3.125rem;
+    }
+    #faq-489 .cs-title,
+    #faq-489 .cs-topper {
+      text-align: left;
+      margin-left: 0;
+    }
+    #faq-489 .cs-faq-group {
+      width: clamp(56%, 58vw, 58%);
+      flex: none;
+    }
+  }
+                                  
+                                  
+                                  
+                                  
+  /*-- -------------------------- -->
+<---          Footer            -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #cs-footer-840 {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      padding: var(--sectionPadding);
+      /* 30px - 50px */
+      padding-bottom: clamp(1.875rem, 5vw, 3.125rem);
+      background-color: #1a1a1a;
+    }
+    #cs-footer-840 .cs-container {
+      width: 100%;
+      /* reset on tablet */
+      max-width: 34.375rem;
+      margin: auto;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      column-gap: 3rem;
+      row-gap: 2rem;
+    }
+    #cs-footer-840 .cs-logo-group {
+      /* takes up all the space, lets the other ul's wrap below it */
+      width: 100%;
+      position: relative;
+    }
+    #cs-footer-840 .cs-logo {
+      width: 13.125rem;
+      height: auto;
+      margin: 0 0 1.5rem 0;
+      display: block;
+    }
+    #cs-footer-840 .cs-logo-img {
+      width: 100%;
+      height: auto;
+    }
+    #cs-footer-840 .cs-text {
+      font-size: 1rem;
+      line-height: 1.5em;
+      margin: 0 0 1.5rem 0;
+      max-width: 25rem;
+      color: #BABABA;
+    }
+    #cs-footer-840 .cs-social {
+      display: inline-flex;
+      justify-content: flex-start;
+      gap: 0.75em;
+    }
+    #cs-footer-840 .cs-social-link {
+      width: 2rem;
+      height: 2rem;
+      background-color: #484848;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    #cs-footer-840 .cs-social-link:hover {
+      background-color: var(--primaryLight);
+      transform: translateY(-0.1875rem);
+    }
+    #cs-footer-840 .cs-social-link:hover .cs-social-img {
+      filter: grayscale(1) brightness(1000%);
+    }
+    #cs-footer-840 .cs-social-img {
+      height: 0.75rem;
+      width: auto;
+      display: block;
+    }
+    #cs-footer-840 .cs-header {
+      font-size: 1.25rem;
+      line-height: 1.5em;
+      font-weight: 700;
+      margin: 0 0 1.25rem 0;
+      color: var(--bodyTextColorWhite);
+      display: block;
+      position: relative;
+    }
+    #cs-footer-840 .cs-ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    #cs-footer-840 .cs-ul-1 {
+      width: 100%;
+      max-width: 21.875rem;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      column-gap: 2rem;
+    }
+    #cs-footer-840 .cs-ul-1 .cs-li {
+      width: 44%;
+    }
+    #cs-footer-840 .cs-li {
+      list-style: none;
+    }
+    #cs-footer-840 .cs-link {
+      font-size: 1rem;
+      text-decoration: none;
+      line-height: 1.5em;
+      text-align: left;
+      color: #BABABA;
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      transition: color .3s;
+    }
+    #cs-footer-840 .cs-link:hover {
+      color: var(--primaryLight);
+    }
+    #cs-footer-840 .cs-icon {
+      width: 1.25rem;
+      height: auto;
+      margin-right: 0.125rem;
+      display: block;
+    }
+    #cs-footer-840 .cs-bottom {
+      text-align: center;
+      width: 100%;
+      max-width: 80rem;
+      /* 48px - 64px */
+      margin: clamp(3rem, 7vw, 4rem) auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid #484848;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    #cs-footer-840 .cs-credit,
+    #cs-footer-840 .cs-bottom-link,
+    #cs-footer-840 .cs-credit-link {
+      /* 14px - 16px */
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      line-height: 1.5em;
+      text-decoration: none;
+      width: auto;
+      margin: 0;
+      color: #bababa;
+      display: inline-block;
+      position: relative;
+      transition: color .3s;
+    }
+    #cs-footer-840 .cs-credit {
+      width: 100%;
+    }
+    #cs-footer-840 .cs-credit-link {
+      /* 14px - 16px */
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      line-height: 1.5em;
+      text-decoration: none;
+      width: auto;
+      margin: 0;
+      color: #bababa;
+      display: inline-block;
+      position: relative;
+    }
+    #cs-footer-840 .cs-credit-link:hover {
+      color: var(--primary);
+    }
+    #cs-footer-840 .cs-bottom-links {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #cs-footer-840 .cs-bottom-link {
+      display: flex;
+      align-items: center;
+    }
+    #cs-footer-840 .cs-bottom-link:hover {
+      color: var(--primary);
+    }
+    #cs-footer-840 .cs-bottom-link:last-of-type:before {
+      /* separator */
+      content: '';
+      width: 1px;
+      height: 0.875rem;
+      margin: 0 0.75rem;
+      background: currentColor;
+      opacity: 1;
+      display: block;
+    }
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #cs-footer-840 .cs-container {
+      max-width: 80rem;
+      /* 48px - 64px */
+      row-gap: clamp(3rem, 7vw, 4rem);
+    }
+    #cs-footer-840 .cs-bottom {
+      justify-content: space-between;
+      flex-wrap: nowrap;
+    }
+    #cs-footer-840 .cs-credit {
+      text-align: left;
+    }
+    #cs-footer-840 .cs-bottom-links {
+      justify-content: flex-end;
+    }
+  }
+  /* Small Desktop - 1024px */
+  @media only screen and (min-width: 64rem) {
+    #cs-footer-840 .cs-container {
+      /* pushes all flex children to the top */
+      align-items: flex-start;
+      justify-content: flex-end;
+      flex-wrap: nowrap;
+    }
+    #cs-footer-840 .cs-logo-group {
+      width: 30%;
+      max-width: 25rem;
+      /* pushes everything to the right of it as far as possible in a flexbox */
+      margin-right: auto;
+    }
+    #cs-footer-840 .cs-text {
+      width: 100%;
+    }
+    #cs-footer-840 .cs-social {
+      flex-direction: row;
+      position: relative;
+      top: auto;
+      right: auto;
+    }
+  }
+                                  
+                                  
+                                  

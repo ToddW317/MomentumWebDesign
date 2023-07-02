@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>Momentum Web Design</title>
+  </head>
+  <body>
+    <!-- ============================================ -->
+    <!--                 Navigation                   -->
+    <!-- ============================================ -->
+
+    <header id="cs-navigation">
+      <div class="cs-container">
+        <!--Nav Logo-->
+        <a href="" class="cs-logo" aria-label="back to home">
+          <img
+            src="C:\Users\todd_\Desktop\Web Dev\Momentum_Logo\icon_only\Momentum Transparent icon.png"
+            alt="logo"
+            width="210"
+            height="29"
+            aria-hidden="true"
+            decoding="async"
+          />
+        </a>
+        <!--Navigation List-->
+        <nav class="cs-nav" role="navigation">
+          <!--Mobile Nav Toggle-->
+          <button class="cs-toggle" aria-label="mobile menu toggle">
+            <div class="cs-box" aria-hidden="true">
+              <span class="cs-line cs-line1" aria-hidden="true"></span>
+              <span class="cs-line cs-line2" aria-hidden="true"></span>
+              <span class="cs-line cs-line3" aria-hidden="true"></span>
+            </div>
+          </button>
+          <!-- We need a wrapper div to set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
+          <div class="cs-ul-wrapper">
+            <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+              <li class="cs-li">
+                <a href="index.html" class="cs-li-link cs-active"> Home </a>
+              </li>
+              <li class="cs-li">
+                <a href="about.html" class="cs-li-link"> About </a>
+              </li>
+              <!--Copy and paste this cs-dropdown list item and replace any .cs-li with this cs-dropdown group to make a new dropdown-->
+              <li class="cs-li cs-dropdown" tabindex="0">
+                <span class="cs-li-link">
+                  Services
+                  <img
+                    class="cs-drop-icon"
+                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/down-gold.svg"
+                    alt="dropdown icon"
+                    width="15"
+                    height="15"
+                    decoding="async"
+                    aria-hidden="true"
+                  />
+                </span>
+                <ul class="cs-drop-ul">
+                  <li class="cs-drop-li">
+                    <a href="services.html" class="cs-li-link cs-drop-link"
+                      >All Services</a
+                    >
+                  </li>
+                  <li class="cs-drop-li">
+                    <a href="services.html" class="cs-li-link cs-drop-link"
+                      >Custom Websites</a
+                    >
+                  </li>
+                  <li class="cs-drop-li">
+                    <a href="services.html" class="cs-li-link cs-drop-link"
+                      >Research & Copywriting</a
+                    >
+                  </li>
+                  <li class="cs-drop-li">
+                    <a href="services.html" class="cs-li-link cs-drop-link"
+                      >SEO</a
+                    >
+                  </li>
+                  <li class="cs-drop-li">
+                    <a href="services.html" class="cs-li-link cs-drop-link"
+                      >Content Management</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="cs-li">
+                <a href="pricing.html" class="cs-li-link"> Pricing </a>
+              </li>
+              <li class="cs-li">
+                <a href="FAQ.html" class="cs-li-link"> FAQ </a>
+              </li>
+              <li class="cs-li">
+                <a href="contact.html" class="cs-li-link"> Contact </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <a href="contact.html" class="cs-button-solid cs-nav-button"
+          >Let's Chat!</a
+        >
+        <!--Dark Mode toggle, uncomment button code to enable a dark mode toggle-->
+        <!-- <button id="dark-mode-toggle" aria-label="dark mode toggle">
+            <svg class="cs-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480" xml:space="preserve"><path d="M459.782 347.328c-4.288-5.28-11.488-7.232-17.824-4.96-17.76 6.368-37.024 9.632-57.312 9.632-97.056 0-176-78.976-176-176 0-58.4 28.832-112.768 77.12-145.472 5.472-3.712 8.096-10.4 6.624-16.832S285.638 2.4 279.078 1.44C271.59.352 264.134 0 256.646 0c-132.352 0-240 107.648-240 240s107.648 240 240 240c84 0 160.416-42.688 204.352-114.176 3.552-5.792 3.04-13.184-1.216-18.496z"/></svg>
+            <img class="cs-sun" aria-hidden="true" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fsun.svg" decoding="async" alt="moon" width="15" height="15">
+        </button> -->
+      </div>
+    </header>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ============================================ -->
+    <!--                   Stats                      -->
+    <!-- ============================================ -->
+
+    <section id="hero-929">
+      <div class="cs-container">
+        <div class="cs-content">
+          <h2 class="cs-title">
+            I build beautiful brands, amazing websites, and unforgettable
+            experiences.
+          </h2>
+          <div class="cs-flex">
+            <div class="cs-content-group">
+              <p class="cs-text">
+                Build Momentum and take your passion and business to new
+                heights.
+              </p>
+              <a href="contact.html" class="cs-button-solid">Learn More</a>
+            </div>
+            <div class="cs-hours-group">
+              <span class="cs-header">Business Hours</span>
+              <div class="cs-hours">
+                <span class="cs-day">Mon-Fri</span>
+                <span class="cs-time">10AM-8PM</span>
+              </div>
+              <div class="cs-hours">
+                <span class="cs-day">Sat</span>
+                <span class="cs-time">11AM-6PM</span>
+              </div>
+            </div>
+          </div>
+          <!--We need this wrapper div so we can place the cs-tagline around the cs-picture image. We can only place images inside picture tags so the cs-tagline can't go in there. hence we HAVE to make a div wrapper so they can be placed together-->
+          <div class="cs-picture-group">
+            <!-- <span class="cs-tagline">Since 1990</span> -->
+            <!--Hair Model Picture-->
+            <picture class="cs-picture">
+              <!--Mobile Image-->
+              <source
+                media="(max-width: 600px)"
+                srcset="C:\Users\todd_\Desktop\MomentumSite\ToddHeadshot4.png"
+              />
+              <!--Tablet and above Image-->
+              <source
+                media="(min-width: 601px)"
+                srcset="C:\Users\todd_\Desktop\MomentumSite\ToddHeadshot4.png"
+              />
+              <img
+                loading="lazy"
+                decoding="async"
+                src="C:\Users\todd_\Desktop\MomentumSite\ToddHeadshot4.png"
+                alt="hair model"
+                width="576"
+                height="598"
+              />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <picture class="cs-background">
+        <!--Mobile Image-->
+        <source
+          media="(max-width: 600px)"
+          srcset="C:\Users\todd_\Desktop\MomentumSite\GlassesLookingAtCode.jpg"
+        />
+        <!--Tablet and above Image-->
+        <source
+          media="(min-width: 601px)"
+          srcset="C:\Users\todd_\Desktop\MomentumSite\GlassesLookingAtCode.jpg"
+        />
+        <img
+          loading="lazy"
+          decoding="async"
+          src="C:\Users\todd_\Desktop\MomentumSite\GlassesLookingAtCode.jpg"
+          alt="Desktops with code"
+          width="1920"
+          height="804"
+        />
+      </picture>
+    </section>
+
+    <!-- ============================================ -->
+    <!--                   Footer                     -->
+    <!-- ============================================ -->
+
+    <footer id="cs-footer-840">
+      <div class="cs-container">
+        <!-- Logo Group -->
+        <div class="cs-logo-group">
+          <a aria-label="go back to home" class="cs-logo" href="">
+            <img
+              class="cs-logo-img"
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              src="C:\Users\todd_\Desktop\Web Dev\Momentum_Logo\icon_only\Momentum Transparent icon.png"
+              alt="logo"
+              width="240"
+              height="32"
+            />
+          </a>
+          <p class="cs-text">
+            Contrary to popular belief, a website is one of the first things
+            customers review before deciding on which company they would like to
+            work with.
+          </p>
+          <div class="cs-social">
+            <a
+              class="cs-social-link"
+              aria-label="visit facebook profile"
+              href=""
+            >
+              <img
+                class="cs-social-img"
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fface-grey1.svg"
+                alt="facebook"
+                width="11"
+                height="11"
+              />
+            </a>
+            <a
+              class="cs-social-link"
+              aria-label="visit twitter profile"
+              href=""
+            >
+              <img
+                class="cs-social-img"
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Finstragm-grey3.svg"
+                alt="twitter"
+                width="6"
+                height="11"
+              />
+            </a>
+            <a
+              class="cs-social-link"
+              aria-label="visit instagram profile"
+              href=""
+            >
+              <img
+                class="cs-social-img"
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Ftwitter-grey1.svg"
+                alt="instagram"
+                width="11"
+                height="11"
+              />
+            </a>
+          </div>
+        </div>
+        <!-- Links -->
+        <div class="cs-ul-wrapper">
+          <span class="cs-header">Quick Links</span>
+          <ul class="cs-ul cs-ul-1">
+            <li class="cs-li">
+              <a class="cs-link" href="index.html">Home</a>
+            </li>
+            <li class="cs-li">
+              <a class="cs-link" href="about.html">About</a>
+            </li>
+            <li class="cs-li">
+              <a class="cs-link" href="service.html">Services</a>
+            </li>
+            <li class="cs-li">
+              <a class="cs-link" href="pricing.html">Pricing</a>
+            </li>
+            <li class="cs-li">
+              <a class="cs-link" href="FAQ.html">FAQ</a>
+            </li>
+            <!-- <li class="cs-li">
+                    <a class="cs-link" href="">Blog</a>
+                  </li> -->
+            <li class="cs-li">
+              <a class="cs-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="cs-ul-wrapper">
+          <!-- Contact Info -->
+          <span class="cs-header">Contact Information</span>
+          <ul class="cs-ul">
+            <li class="cs-li">
+              <!--Make this link go to the google page-->
+              <a class="cs-link" href="" target="_blank">
+                <img
+                  class="cs-icon"
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fclock-grey.svg"
+                  alt="clock icon"
+                  width="20"
+                  height="20"
+                />
+                M-F 10am – 8pm | Sat 11am - 6pm
+              </a>
+            </li>
+            <li class="cs-li">
+              <a class="cs-link" href="tel:555-497-1900">
+                <img
+                  class="cs-contact-icon"
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fphone-grey.svg"
+                  alt="phone icon"
+                  width="20"
+                  height="20"
+                />
+                555-497-1900
+              </a>
+            </li>
+            <li class="cs-li">
+              <a class="cs-link" href="mailto:Todd@MomentumWebDev.com">
+                <img
+                  class="cs-icon"
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fmessage-grey.svg"
+                  alt="email icon"
+                  width="20"
+                  height="20"
+                />
+                Todd@MomentumWebDev.com
+              </a>
+            </li>
+            <li class="cs-li">
+              <!--Make this link go to the google page-->
+              <a class="cs-link" href="" target="_blank">
+                <img
+                  class="cs-icon"
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fpin-grey.svg"
+                  alt="pin icon"
+                  width="20"
+                  height="20"
+                />
+                Cerritos, California
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="cs-bottom">
+        <span class="cs-credit">
+          © Copyright 2023
+          <a href="" class="cs-credit-link" target="_blank"
+            >Momentum Web Design, LLC | MomentumWebDev.com</a
+          >
+        </span>
+        <div class="cs-bottom-links">
+          <a href="" class="cs-bottom-link">Privacy Policy</a>
+          <a href="" class="cs-bottom-link">Terms Of Use</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
