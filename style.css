@@ -46,8 +46,8 @@ table {
 }
 :root {
     /* remove this whole :root and put in your global css file that's shared on all pages, then just remove this section from all other Stitches you add later, only need this once in your global stylesheet */
-    --primary: #AC8856;
-    --primaryLight: #AC8856;
+    --primary: #2F5ECF;
+    --primaryLight: #3CBCFC;
     --secondary: #FFBA43;
     --secondaryLight: #FFBA43;
     --headerColor: #1a1a1a;
@@ -4077,4 +4077,4 @@ a, a:visited, a:hover, a:focus {
   text-decoration: none;
   color: #000;
 }
-                                  
+
